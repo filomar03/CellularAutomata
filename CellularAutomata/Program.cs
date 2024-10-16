@@ -5,7 +5,16 @@ namespace CellularAutomata
 {
     internal class Program
     {
-        const int MIN_FRAME_TIME = 50;
+        const int MIN_FRAME_TIME = 100;
+
+        //TODO:
+        //- decouple text-based graphic (extract to an interface), add options to constructor to chose graphics settings (maybe create a struct to represent them)
+        //- understand multithreading
+        //- add interactibility to allow to capture keys and interact with simulation (pause, etc...)
+        //- implement infinite life
+        //- implement hexagonal cellular automata
+        //- implement basic game with networking
+
         static async Task Main()
         {
             Console.CursorVisible = false;
@@ -41,7 +50,7 @@ namespace CellularAutomata
 
             CellAutomata rngLife = new ConwaysLife(56, 28);
 
-            CellAutomata ca = gospelGliderGun;
+            CellAutomata ca = rngLife;
 
             while (true)
             {
