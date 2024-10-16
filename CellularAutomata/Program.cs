@@ -5,22 +5,53 @@ namespace CellularAutomata
 {
     internal class Program
     {
-        const int MIN_FRAME_TIME = 250;
+        const int MIN_FRAME_TIME = 50;
         static async Task Main()
         {
             Console.CursorVisible = false;
 
-            CellAutomata life = new ConwaysLife("MMM", 0, 1, 3, 3);
-         
+            CellAutomata copperhead = new ConwaysLife(
+                ".....#.##...\n" +
+                "....#......#\n" +
+                "...##...#..#\n" +
+                "##.#.....##.\n" +
+                "##.#.....##.\n" +
+                "...##...#..#\n" +
+                "....#......#\n" +
+                ".....#.##...",
+                0, 1, 56, 28);
+
+            CellAutomata glider = new ConwaysLife(
+                "..#\n" +
+                "#.#\n" +
+                ".##",
+                0, 0, 56, 28);
+
+            CellAutomata gospelGliderGun = new ConwaysLife(
+                ".......................@@\n" +
+                ".......................@.@\n" +
+                "..........@.@.............@.......@@\n" +
+                ".........@..@..@@......@..@.......@@\n" +
+                "@@......@@.....@.@........@\n" +
+                "@@....@@.......@...@...@.@\n" +
+                "........@@.....@@@.@@..@@\n" +
+                ".........@..@...@@\n" +
+                "..........@.@\n",
+                0, 0, 56, 28);
+
+            CellAutomata rngLife = new ConwaysLife(56, 28);
+
+            CellAutomata ca = gospelGliderGun;
+
             while (true)
             {
-                string dipslay = life.SimulationAsFormattedString();
+                Task timer = Task.Delay(MIN_FRAME_TIME);
+
+                string dipslay = ca .SimulationAsFormattedString();
                 Console.WriteLine(dipslay);
                 Console.SetCursorPosition(0, 0);
-
-                Task timer = Task.Delay(MIN_FRAME_TIME);
                 
-                life.Tick();
+                ca.Tick();
                 
                 await timer;
             }

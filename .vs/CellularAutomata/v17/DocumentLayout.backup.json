@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Filo\\source\\repos\\CellularAutomata\\",
+  "WorkspaceRootPath": "C:\\Users\\Filo\\Repos\\C#\\CellularAutomata\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{88599842-A068-4293-9EB0-909DC126B06C}|CellularAutomata\\CellularAutomata.csproj|c:\\users\\filo\\source\\repos\\cellularautomata\\cellularautomata\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{88599842-A068-4293-9EB0-909DC126B06C}|CellularAutomata\\CellularAutomata.csproj|c:\\users\\filo\\repos\\c#\\cellularautomata\\cellularautomata\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{88599842-A068-4293-9EB0-909DC126B06C}|CellularAutomata\\CellularAutomata.csproj|solutionrelative:cellularautomata\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{88599842-A068-4293-9EB0-909DC126B06C}|CellularAutomata\\CellularAutomata.csproj|c:\\users\\filo\\source\\repos\\cellularautomata\\cellularautomata\\life\\conwayslife.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{88599842-A068-4293-9EB0-909DC126B06C}|CellularAutomata\\CellularAutomata.csproj|c:\\users\\filo\\repos\\c#\\cellularautomata\\cellularautomata\\life\\conwayslife.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{88599842-A068-4293-9EB0-909DC126B06C}|CellularAutomata\\CellularAutomata.csproj|solutionrelative:cellularautomata\\life\\conwayslife.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -24,11 +24,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Filo\\source\\repos\\CellularAutomata\\CellularAutomata\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\Filo\\Repos\\C#\\CellularAutomata\\CellularAutomata\\Program.cs",
               "RelativeDocumentMoniker": "CellularAutomata\\Program.cs",
-              "ToolTip": "C:\\Users\\Filo\\source\\repos\\CellularAutomata\\CellularAutomata\\Program.cs",
+              "ToolTip": "C:\\Users\\Filo\\Repos\\C#\\CellularAutomata\\CellularAutomata\\Program.cs",
               "RelativeToolTip": "CellularAutomata\\Program.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAcwAcAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAAgwDQAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-16T10:24:02.729Z",
               "EditorCaption": ""
@@ -37,11 +37,11 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "ConwaysLife.cs",
-              "DocumentMoniker": "C:\\Users\\Filo\\source\\repos\\CellularAutomata\\CellularAutomata\\life\\ConwaysLife.cs",
+              "DocumentMoniker": "C:\\Users\\Filo\\Repos\\C#\\CellularAutomata\\CellularAutomata\\life\\ConwaysLife.cs",
               "RelativeDocumentMoniker": "CellularAutomata\\life\\ConwaysLife.cs",
-              "ToolTip": "C:\\Users\\Filo\\source\\repos\\CellularAutomata\\CellularAutomata\\life\\ConwaysLife.cs",
+              "ToolTip": "C:\\Users\\Filo\\Repos\\C#\\CellularAutomata\\CellularAutomata\\life\\ConwaysLife.cs",
               "RelativeToolTip": "CellularAutomata\\life\\ConwaysLife.cs",
-              "ViewState": "AgIAAFcAAAAAAAAAAAAkwG4AAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-16T10:40:12.888Z",
               "EditorCaption": ""

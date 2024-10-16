@@ -11,58 +11,58 @@ namespace CellularAutomata.Life
         private bool[] world;
         private readonly int width, height;
 
-        private const string brightSymbols = "BMW8Q@#&%$*";
-        private const string darkSymbols = "         ..._";
+        private const string brightSymbols = "M@#&%$*";
+        private const string darkSymbols = "_. ";
         private readonly char liveChar, deadChar;
+        private readonly bool spaced;
 
-        public ConwaysLife(int width, int height)
+        public ConwaysLife(int width, int height, bool spaced = true)
         {
             this.width = width;
             this.height = height;
-            this.world = new bool[width * height];
+            world = new bool[width * height];
 
             Random rng = new();
 
-            for (int i = 0; i < this.world.Length; i++)
+            for (int i = 0; i < world.Length; i++) //initialize randomly
             {
-                this.world[i] = rng.Next(0, 2) == 1;
+                world[i] = rng.Next(0, 2) == 1;
             }
 
-            this.liveChar = brightSymbols[rng.Next(0, brightSymbols.Length)];
-            this.deadChar = darkSymbols[rng.Next(0, darkSymbols.Length)];
+            liveChar = brightSymbols[rng.Next(0, brightSymbols.Length)]; //chose random "colors"
+            deadChar = darkSymbols[rng.Next(0, darkSymbols.Length)];
+            this.spaced = spaced;
         }
 
-        public ConwaysLife(int size) : this(size, size) { }
-
-        public ConwaysLife(string startConfig, int left, int top, int width, int height) : this(width, height)
+        public ConwaysLife(string startConfig, int left, int top, int width, int height, bool spaced = true) : this(width, height, spaced)
         {
-            if (!IsConfigValid(startConfig)) //startConfig contains some illegal characters
+            if (!IsConfigValid(startConfig)) //check if startConfig contains some illegal characters
             {
                 throw new ArgumentException("Illegal starting configuration");
             }
 
             IList<string> lines = startConfig.Split('\n');
-            if (top + lines.Count > height) //lines exceed startConfig height
+            if (top + lines.Count > height) //check id startConfig lines exceed world height
             {
                 throw new ArgumentException("Illegal starting configuration");
             }
 
-            this.world = new bool[this.width * this.height];
-            for (int i = 0; i < this.world.Length; ++i)
+            world = new bool[width * height];
+            for (int i = 0; i < world.Length; ++i)
             {
                 int x = i % this.width;
                 int y = i / this.width;
 
-                if (y >= top && y < top + lines.Count) //at the height of one of the startConfig lines (y coord)
+                if (y >= top && y < top + lines.Count) //check if at the height of one of the startConfig lines (y coord)
                 { 
-                    if (x == 0 && left + lines[y - top].Length > this.width) //line exceeds startConfig width (short-circuit to check once every line)
+                    if (x == 0 && left + lines[y - top].Length > width) //check if each line exceeds world width (short-circuit to check once every line)
                     {
                         throw new ArgumentException("Illegal starting configuration");
                     }
 
-                    if (x >= left && x < left + lines[y - top].Length) //inside one of the startConfig lines (x coord)
+                    if (x >= left && x < left + lines[y - top].Length) //check if inside one of the startConfig lines (x coord)
                     {
-                        this.world[i] = brightSymbols.Contains(lines[y - top][x - left]); //set cell state according to startConfig
+                        world[i] = brightSymbols.Contains(lines[y - top][x - left]); //set cell state according to startConfig
                     }
                 }
             }
@@ -88,14 +88,14 @@ namespace CellularAutomata.Life
                     int nbrX = nbrRelX + x;
                     int nbrY = nbrRelY + y;
 
-                    //prevents from considering neighborn side-wrapped cells and also prevents from under/over flowing
+                    //prevents from considering neighborn horizontal-wrapped cells and also prevents from under/over flowing world array vertically
                     if (nbrX >= 0 && nbrX < width && nbrY >= 0 && nbrY < height) 
                     {
                         nbrsCount += world[nbrY * width + nbrX] ? 1 : 0;
                     }
                 }
 
-                if (world[i] && nbrsCount is not 2 or 3) //if living and neighborns is not 2 or 3, then die
+                if (world[i] && nbrsCount is not (2 or 3)) //if living and neighborns is not 2 or 3, then die
                 {
                     newWorld[i] = false;
                 }
@@ -104,7 +104,7 @@ namespace CellularAutomata.Life
                     newWorld[i] = true;
                 } else
                 {
-                    newWorld[i] = world[i];
+                    newWorld[i] = world[i]; //otherwise mantain state
                 }
             }
 
@@ -114,17 +114,22 @@ namespace CellularAutomata.Life
         public override string SimulationAsFormattedString()
         {
             StringBuilder sb = new();
-            sb.Append($"[Generation:{Generation} Size:{Size.Item1}x{Size.Item2}]");
+
+            sb.Append($"[Generation:{Generation} Size:{Size.Item1}x{Size.Item2} Population:{world.Count(e => e)}]");
+
             for (int i = 0; i < world.Length; i++)
             {
                 int x = i % width;
-
                 if (x == 0)
                 {
                     sb.Append('\n');
                 }
 
                 sb.Append(world[i] ? liveChar : deadChar);
+                if (spaced)
+                {
+                    sb.Append(' ');
+                }
             }
             return sb.ToString();
         }
