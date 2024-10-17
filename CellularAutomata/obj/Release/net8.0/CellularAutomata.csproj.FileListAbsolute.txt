@@ -1,0 +1,15 @@
+C:\Users\Filo\source\repos\CellularAutomata\CellularAutomata\bin\Release\net8.0\CellularAutomata.exe
+C:\Users\Filo\source\repos\CellularAutomata\CellularAutomata\bin\Release\net8.0\CellularAutomata.deps.json
+C:\Users\Filo\source\repos\CellularAutomata\CellularAutomata\bin\Release\net8.0\CellularAutomata.runtimeconfig.json
+C:\Users\Filo\source\repos\CellularAutomata\CellularAutomata\bin\Release\net8.0\CellularAutomata.dll
+C:\Users\Filo\source\repos\CellularAutomata\CellularAutomata\bin\Release\net8.0\CellularAutomata.pdb
+C:\Users\Filo\source\repos\CellularAutomata\CellularAutomata\obj\Release\net8.0\CellularAutomata.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Filo\source\repos\CellularAutomata\CellularAutomata\obj\Release\net8.0\CellularAutomata.AssemblyInfoInputs.cache
+C:\Users\Filo\source\repos\CellularAutomata\CellularAutomata\obj\Release\net8.0\CellularAutomata.AssemblyInfo.cs
+C:\Users\Filo\source\repos\CellularAutomata\CellularAutomata\obj\Release\net8.0\CellularAutomata.csproj.CoreCompileInputs.cache
+C:\Users\Filo\source\repos\CellularAutomata\CellularAutomata\obj\Release\net8.0\CellularAutomata.sourcelink.json
+C:\Users\Filo\source\repos\CellularAutomata\CellularAutomata\obj\Release\net8.0\CellularAutomata.dll
+C:\Users\Filo\source\repos\CellularAutomata\CellularAutomata\obj\Release\net8.0\refint\CellularAutomata.dll
+C:\Users\Filo\source\repos\CellularAutomata\CellularAutomata\obj\Release\net8.0\CellularAutomata.pdb
+C:\Users\Filo\source\repos\CellularAutomata\CellularAutomata\obj\Release\net8.0\CellularAutomata.genruntimeconfig.cache
+C:\Users\Filo\source\repos\CellularAutomata\CellularAutomata\obj\Release\net8.0\ref\CellularAutomata.dll

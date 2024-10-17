@@ -8,19 +8,18 @@ namespace CellularAutomata.Life
 {
     internal class ConwaysLife : CellAutomata
     {
-        private bool[] world;
+        private readonly bool[] world;
+        private readonly int[] nbrns;
         private readonly int width, height;
 
-        private const string brightSymbols = "M@#&%$*";
-        private const string darkSymbols = "_. ";
-        private readonly char liveChar, deadChar;
-        private readonly bool spaced;
+        private readonly LifeTheme theme;
 
-        public ConwaysLife(int width, int height, bool spaced = true)
+        public ConwaysLife(int width, int height, LifeTheme theme)
         {
             this.width = width;
             this.height = height;
             world = new bool[width * height];
+            nbrns = new int[world.Length];
 
             Random rng = new();
 
@@ -28,13 +27,12 @@ namespace CellularAutomata.Life
             {
                 world[i] = rng.Next(0, 2) == 1;
             }
+            computeNeighborns();
 
-            liveChar = brightSymbols[rng.Next(0, brightSymbols.Length)]; //chose random "colors"
-            deadChar = darkSymbols[rng.Next(0, darkSymbols.Length)];
-            this.spaced = spaced;
+            this.theme = theme;
         }
 
-        public ConwaysLife(string startConfig, int left, int top, int width, int height, bool spaced = true) : this(width, height, spaced)
+        public ConwaysLife(string startConfig, int left, int top, int width, int height, LifeTheme theme) : this(width, height, theme)
         {
             if (!IsConfigValid(startConfig)) //check if startConfig contains some illegal characters
             {
@@ -62,53 +60,57 @@ namespace CellularAutomata.Life
 
                     if (x >= left && x < left + lines[y - top].Length) //check if inside one of the startConfig lines (x coord)
                     {
-                        world[i] = brightSymbols.Contains(lines[y - top][x - left]); //set cell state according to startConfig
+                        world[i] = (LifeTheme.defBrightSymbols + theme.Live).Contains(lines[y - top][x - left]); //set cell state according to startConfig
                     }
                 }
             }
+            computeNeighborns();
         }
 
         public (int, int) Size { get => (width, height); }
 
-        private static bool IsConfigValid(string config) => config.All((brightSymbols + darkSymbols + "\n").Distinct().Contains);
+        private bool IsConfigValid(string config) => config.All(
+            (LifeTheme.defBrightSymbols + theme.Live + LifeTheme.defDarkSymbols + theme.Dead + " \n").Contains);
 
-        protected override void PerformTick()
+        private void computeNeighborns()
         {
-            bool[] newWorld = new bool[width * height];
-
-            (int, int)[] nbrRel = [(-1, -1), (0, -1), (1, -1), (-1, 0), (1, 0), (-1, 1), (0, 1), (1, 1),];
+            (int, int)[] nbrnRel = [(-1, -1), (0, -1), (1, -1), (-1, 0), (1, 0), (-1, 1), (0, 1), (1, 1),];
             for (int i = 0; i < world.Length; i++)
             {
                 int x = i % width;
                 int y = i / width;
 
-                int nbrsCount = 0;
-                foreach (var (nbrRelX, nbrRelY) in nbrRel)
+                nbrns[i] = 0;
+
+                foreach (var (nbrRelX, nbrRelY) in nbrnRel)
                 {
                     int nbrX = nbrRelX + x;
                     int nbrY = nbrRelY + y;
 
                     //prevents from considering neighborn horizontal-wrapped cells and also prevents from under/over flowing world array vertically
-                    if (nbrX >= 0 && nbrX < width && nbrY >= 0 && nbrY < height) 
+                    if (nbrX >= 0 && nbrX < width && nbrY >= 0 && nbrY < height)
                     {
-                        nbrsCount += world[nbrY * width + nbrX] ? 1 : 0;
+                        nbrns[i] += world[nbrY * width + nbrX] ? 1 : 0;
                     }
                 }
+            }
+        }
 
-                if (world[i] && nbrsCount is not (2 or 3)) //if living and neighborns is not 2 or 3, then die
+        protected override void PerformTick()
+        {
+            computeNeighborns();
+
+            for (int i = 0; i < world.Length; i++)
+            {
+                if (world[i] && nbrns[i] is not (2 or 3)) //if living and neighborns is not 2 or 3, then die
                 {
-                    newWorld[i] = false;
+                    world[i] = false;
                 }
-                else if (!world[i] && nbrsCount is 3) //if dead and neighborns is 3, then generate
+                else if (!world[i] && nbrns[i] is 3) //if dead and neighborns is 3, then generate
                 {
-                    newWorld[i] = true;
-                } else
-                {
-                    newWorld[i] = world[i]; //otherwise mantain state
+                    world[i] = true;
                 }
             }
-
-            world = newWorld;
         }
 
         public override string SimulationAsFormattedString()
@@ -125,8 +127,8 @@ namespace CellularAutomata.Life
                     sb.Append('\n');
                 }
 
-                sb.Append(world[i] ? liveChar : deadChar);
-                if (spaced)
+                sb.Append(world[i] ?  theme.Live : theme.Dead); 
+                if (theme.Spaced)
                 {
                     sb.Append(' ');
                 }
@@ -138,5 +140,37 @@ namespace CellularAutomata.Life
     internal class WrappedLife
     {
         //Conways game of life implementation, but calculating neighborns with %, so it has a wrapping behaviour
+    }
+
+    internal record struct LifeTheme
+    {
+        public const string defBrightSymbols = "M@#&%$*";
+        public const string defDarkSymbols = "_. ";
+
+        private readonly char live, dead;
+        private readonly bool spaced = true;
+
+        public LifeTheme ()
+        {
+            Random rng = new();
+
+            live = rng.Choice(LifeTheme.defBrightSymbols);
+            dead = rng.Choice(LifeTheme.defDarkSymbols);
+        }
+        public LifeTheme(bool spaced) : this()
+        {
+            this.spaced = spaced;
+        }
+
+        public LifeTheme(char live, char dead, bool spaced = true)
+        { 
+            this.live = live;
+            this.dead = dead;
+            this.spaced = spaced;
+        }
+
+        public readonly char Live => live;
+        public readonly char Dead => dead;
+        public readonly bool Spaced => spaced;
     }
 }

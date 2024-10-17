@@ -8,19 +8,24 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Filo\\.nuget\\packages\\": {}
+    "C:\\Users\\Filo\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Filo\\Repos\\C#\\CellularAutomata\\CellularAutomata\\CellularAutomata.csproj",
+      "projectUniqueName": "C:\\Users\\Filo\\source\\repos\\CellularAutomata\\CellularAutomata\\CellularAutomata.csproj",
       "projectName": "CellularAutomata",
-      "projectPath": "C:\\Users\\Filo\\Repos\\C#\\CellularAutomata\\CellularAutomata\\CellularAutomata.csproj",
+      "projectPath": "C:\\Users\\Filo\\source\\repos\\CellularAutomata\\CellularAutomata\\CellularAutomata.csproj",
       "packagesPath": "C:\\Users\\Filo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Filo\\Repos\\C#\\CellularAutomata\\CellularAutomata\\obj\\",
+      "outputPath": "C:\\Users\\Filo\\source\\repos\\CellularAutomata\\CellularAutomata\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
         "C:\\Users\\Filo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -66,7 +71,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

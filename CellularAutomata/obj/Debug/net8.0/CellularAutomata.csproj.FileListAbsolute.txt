@@ -27,3 +27,4 @@ C:\Users\Filo\Repos\C#\CellularAutomata\CellularAutomata\obj\Debug\net8.0\refint
 C:\Users\Filo\Repos\C#\CellularAutomata\CellularAutomata\obj\Debug\net8.0\CellularAutomata.pdb
 C:\Users\Filo\Repos\C#\CellularAutomata\CellularAutomata\obj\Debug\net8.0\CellularAutomata.genruntimeconfig.cache
 C:\Users\Filo\Repos\C#\CellularAutomata\CellularAutomata\obj\Debug\net8.0\ref\CellularAutomata.dll
+C:\Users\Filo\source\repos\CellularAutomata\CellularAutomata\obj\Debug\net8.0\CellularAutomata.sourcelink.json

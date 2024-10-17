@@ -8,9 +8,9 @@ namespace CellularAutomata
         const int MIN_FRAME_TIME = 100;
 
         //TODO:
-        //- decouple text-based graphic (extract to an interface), add options to constructor to chose graphics settings (maybe create a struct to represent them)
-        //- understand multithreading
+        //- check if dynamic invoke is vorking
         //- add interactibility to allow to capture keys and interact with simulation (pause, etc...)
+        //- modify TimeExecution to support all type of functions (not sure it's doable)
         //- implement infinite life
         //- implement hexagonal cellular automata
         //- implement basic game with networking
@@ -19,6 +19,10 @@ namespace CellularAutomata
         {
             Console.CursorVisible = false;
 
+            //default theme
+            LifeTheme theme = new();
+
+            //patterns
             CellAutomata copperhead = new ConwaysLife(
                 ".....#.##...\n" +
                 "....#......#\n" +
@@ -28,13 +32,13 @@ namespace CellularAutomata
                 "...##...#..#\n" +
                 "....#......#\n" +
                 ".....#.##...",
-                0, 1, 56, 28);
+                0, 1, 56, 28, theme);
 
             CellAutomata glider = new ConwaysLife(
                 "..#\n" +
                 "#.#\n" +
                 ".##",
-                0, 0, 56, 28);
+                0, 0, 56, 28, theme);
 
             CellAutomata gospelGliderGun = new ConwaysLife(
                 ".......................@@\n" +
@@ -46,21 +50,31 @@ namespace CellularAutomata
                 "........@@.....@@@.@@..@@\n" +
                 ".........@..@...@@\n" +
                 "..........@.@\n",
-                0, 0, 56, 28);
+                0, 0, 56, 28, theme);
 
-            CellAutomata rngLife = new ConwaysLife(56, 28);
+            CellAutomata rngLife = new ConwaysLife(Console.BufferWidth / 2, Console.WindowHeight - 2, theme);
+
+            //timers for timing function executions
+            TimeSpan tickTime = TimeSpan.FromMicroseconds(0);
+            //TimeSpan stringTime = TimeSpan.FromMicroseconds(0);
+            TimeSpan printTime = TimeSpan.FromMicroseconds(0);
 
             CellAutomata ca = rngLife;
-
             while (true)
             {
                 Task timer = Task.Delay(MIN_FRAME_TIME);
 
-                string dipslay = ca .SimulationAsFormattedString();
-                Console.WriteLine(dipslay);
-                Console.SetCursorPosition(0, 0);
+                string info = $"Tick time: {tickTime.TotalMilliseconds}ms, Print time: {printTime.TotalMilliseconds}ms";
+                info = info + " ".Repeat(Console.BufferWidth - info.Length);
+                string display = ca.SimulationAsFormattedString();
+                int firstLine = display.IndexOf('\n');
+                display = display.Insert(firstLine, "".Repeat(Console.BufferWidth - firstLine));
                 
-                ca.Tick();
+                Console.WriteLine(info);
+                printTime = MyExtensions.TimeExecution(Console.WriteLine, display);
+                Console.SetCursorPosition(0, 0);
+
+                tickTime = MyExtensions.TimeExecution(ca.Tick);
                 
                 await timer;
             }
