@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
+﻿using System.Diagnostics;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace CellularAutomata
 {
@@ -26,16 +22,6 @@ namespace CellularAutomata
             Stopwatch sw = Stopwatch.StartNew();
 
             action();
-
-            sw.Stop();
-            return sw.Elapsed;
-        }
-
-        public static TimeSpan TimeExecution<T>(Delegate action, params T[] args)
-        {
-            Stopwatch sw = Stopwatch.StartNew();
-
-            action.DynamicInvoke(args);
 
             sw.Stop();
             return sw.Elapsed;

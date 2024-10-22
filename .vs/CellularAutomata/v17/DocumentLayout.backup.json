@@ -7,12 +7,16 @@
       "RelativeMoniker": "D:0:0:{88599842-A068-4293-9EB0-909DC126B06C}|CellularAutomata\\CellularAutomata.csproj|solutionrelative:cellularautomata\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{88599842-A068-4293-9EB0-909DC126B06C}|CellularAutomata\\CellularAutomata.csproj|c:\\users\\filo\\source\\repos\\cellularautomata\\cellularautomata\\myextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{88599842-A068-4293-9EB0-909DC126B06C}|CellularAutomata\\CellularAutomata.csproj|solutionrelative:cellularautomata\\myextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{88599842-A068-4293-9EB0-909DC126B06C}|CellularAutomata\\CellularAutomata.csproj|c:\\users\\filo\\source\\repos\\cellularautomata\\cellularautomata\\textfile1.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{88599842-A068-4293-9EB0-909DC126B06C}|CellularAutomata\\CellularAutomata.csproj|solutionrelative:cellularautomata\\textfile1.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{88599842-A068-4293-9EB0-909DC126B06C}|CellularAutomata\\CellularAutomata.csproj|c:\\users\\filo\\source\\repos\\cellularautomata\\cellularautomata\\life\\conwayslife.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{88599842-A068-4293-9EB0-909DC126B06C}|CellularAutomata\\CellularAutomata.csproj|solutionrelative:cellularautomata\\life\\conwayslife.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88599842-A068-4293-9EB0-909DC126B06C}|CellularAutomata\\CellularAutomata.csproj|c:\\users\\filo\\source\\repos\\cellularautomata\\cellularautomata\\myextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88599842-A068-4293-9EB0-909DC126B06C}|CellularAutomata\\CellularAutomata.csproj|solutionrelative:cellularautomata\\myextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{88599842-A068-4293-9EB0-909DC126B06C}|CellularAutomata\\CellularAutomata.csproj|c:\\users\\filo\\source\\repos\\cellularautomata\\cellularautomata\\life\\fastlife.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -35,19 +39,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MyExtensions.cs",
-              "DocumentMoniker": "C:\\Users\\Filo\\source\\repos\\CellularAutomata\\CellularAutomata\\MyExtensions.cs",
-              "RelativeDocumentMoniker": "CellularAutomata\\MyExtensions.cs",
-              "ToolTip": "C:\\Users\\Filo\\source\\repos\\CellularAutomata\\CellularAutomata\\MyExtensions.cs",
-              "RelativeToolTip": "CellularAutomata\\MyExtensions.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAIwB8AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T08:05:14.024Z",
+              "Title": "TextFile1.txt",
+              "DocumentMoniker": "C:\\Users\\Filo\\source\\repos\\CellularAutomata\\CellularAutomata\\TextFile1.txt",
+              "RelativeDocumentMoniker": "CellularAutomata\\TextFile1.txt",
+              "ToolTip": "C:\\Users\\Filo\\source\\repos\\CellularAutomata\\CellularAutomata\\TextFile1.txt",
+              "RelativeToolTip": "CellularAutomata\\TextFile1.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-10-21T16:53:54.543Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "IInteractable.cs",
               "DocumentMoniker": "C:\\Users\\Filo\\source\\repos\\CellularAutomata\\CellularAutomata\\IInteractable.cs",
               "RelativeDocumentMoniker": "CellularAutomata\\IInteractable.cs",
@@ -55,12 +59,11 @@
               "RelativeToolTip": "CellularAutomata\\IInteractable.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T22:23:10.956Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-16T22:23:10.956Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "FastLife.cs",
               "DocumentMoniker": "C:\\Users\\Filo\\source\\repos\\CellularAutomata\\CellularAutomata\\life\\FastLife.cs",
               "RelativeDocumentMoniker": "CellularAutomata\\life\\FastLife.cs",
@@ -68,8 +71,7 @@
               "RelativeToolTip": "CellularAutomata\\life\\FastLife.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T22:22:53.946Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-16T22:22:53.946Z"
             },
             {
               "$type": "Document",
@@ -79,7 +81,7 @@
               "RelativeDocumentMoniker": "CellularAutomata\\life\\ConwaysLife.cs",
               "ToolTip": "C:\\Users\\Filo\\source\\repos\\CellularAutomata\\CellularAutomata\\life\\ConwaysLife.cs",
               "RelativeToolTip": "CellularAutomata\\life\\ConwaysLife.cs",
-              "ViewState": "AgIAAH4AAAAAAAAAAAAYwJMAAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAAHgAAAAAAAAAAADwv0YAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-16T10:40:12.888Z",
               "EditorCaption": ""
@@ -92,10 +94,22 @@
               "RelativeDocumentMoniker": "CellularAutomata\\Program.cs",
               "ToolTip": "C:\\Users\\Filo\\source\\repos\\CellularAutomata\\CellularAutomata\\Program.cs",
               "RelativeToolTip": "CellularAutomata\\Program.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAxwAoAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAQwD0AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-16T10:24:02.729Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MyExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\Filo\\source\\repos\\CellularAutomata\\CellularAutomata\\MyExtensions.cs",
+              "RelativeDocumentMoniker": "CellularAutomata\\MyExtensions.cs",
+              "ToolTip": "C:\\Users\\Filo\\source\\repos\\CellularAutomata\\CellularAutomata\\MyExtensions.cs",
+              "RelativeToolTip": "CellularAutomata\\MyExtensions.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAAAcAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-17T08:05:14.024Z"
             }
           ]
         }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CellularAutomata.Life
+﻿namespace CellularAutomata.Life
 {
     //Conways game of life but with faster Tick() implementation
     //using sparse list to store only living cells

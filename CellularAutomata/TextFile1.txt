@@ -1,0 +1,5 @@
+﻿TODO:
+- add interactibility to allow to capture keys and interact with simulation (pause, etc...)
+- implement infinite life
+- implement hexagonal cellular automata
+- implement basic game with networking

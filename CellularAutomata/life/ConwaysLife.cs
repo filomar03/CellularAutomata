@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
 namespace CellularAutomata.Life
 {
@@ -27,7 +23,7 @@ namespace CellularAutomata.Life
             {
                 world[i] = rng.Next(0, 2) == 1;
             }
-            computeNeighborns();
+            ComputeNeighborns();
 
             this.theme = theme;
         }
@@ -52,7 +48,7 @@ namespace CellularAutomata.Life
                 int y = i / this.width;
 
                 if (y >= top && y < top + lines.Count) //check if at the height of one of the startConfig lines (y coord)
-                { 
+                {
                     if (x == 0 && left + lines[y - top].Length > width) //check if each line exceeds world width (short-circuit to check once every line)
                     {
                         throw new ArgumentException("Illegal starting configuration");
@@ -64,7 +60,7 @@ namespace CellularAutomata.Life
                     }
                 }
             }
-            computeNeighborns();
+            ComputeNeighborns();
         }
 
         public (int, int) Size { get => (width, height); }
@@ -72,7 +68,7 @@ namespace CellularAutomata.Life
         private bool IsConfigValid(string config) => config.All(
             (LifeTheme.defBrightSymbols + theme.Live + LifeTheme.defDarkSymbols + theme.Dead + " \n").Contains);
 
-        private void computeNeighborns()
+        private void ComputeNeighborns()
         {
             (int, int)[] nbrnRel = [(-1, -1), (0, -1), (1, -1), (-1, 0), (1, 0), (-1, 1), (0, 1), (1, 1),];
             for (int i = 0; i < world.Length; i++)
@@ -98,7 +94,7 @@ namespace CellularAutomata.Life
 
         protected override void PerformTick()
         {
-            computeNeighborns();
+            ComputeNeighborns();
 
             for (int i = 0; i < world.Length; i++)
             {
@@ -117,7 +113,8 @@ namespace CellularAutomata.Life
         {
             StringBuilder sb = new();
 
-            sb.Append($"[Generation:{Generation} Size:{Size.Item1}x{Size.Item2} Population:{world.Count(e => e)}]");
+            //trailing spaces are added to "clear" the console buffer
+            sb.Append($"[Generation:{Generation} Size:{Size.Item1}x{Size.Item2} Population:{world.Count(e => e)}]" + " ".Repeat(5));
 
             for (int i = 0; i < world.Length; i++)
             {
@@ -127,7 +124,7 @@ namespace CellularAutomata.Life
                     sb.Append('\n');
                 }
 
-                sb.Append(world[i] ?  theme.Live : theme.Dead); 
+                sb.Append(world[i] ? theme.Live : theme.Dead);
                 if (theme.Spaced)
                 {
                     sb.Append(' ');
@@ -142,15 +139,15 @@ namespace CellularAutomata.Life
         //Conways game of life implementation, but calculating neighborns with %, so it has a wrapping behaviour
     }
 
-    internal record struct LifeTheme
+    internal readonly record struct LifeTheme
     {
-        public const string defBrightSymbols = "M@#&%$*";
-        public const string defDarkSymbols = "_. ";
+        public static readonly string defBrightSymbols = "M" + "@".Repeat(3) + "#" + "&" + "%" + "$" + "*";
+        public static readonly string defDarkSymbols = "_" + ".".Repeat(3) + " ";
 
         private readonly char live, dead;
         private readonly bool spaced = true;
 
-        public LifeTheme ()
+        public LifeTheme()
         {
             Random rng = new();
 
@@ -163,7 +160,7 @@ namespace CellularAutomata.Life
         }
 
         public LifeTheme(char live, char dead, bool spaced = true)
-        { 
+        {
             this.live = live;
             this.dead = dead;
             this.spaced = spaced;
